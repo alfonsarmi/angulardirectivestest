@@ -1,0 +1,54 @@
+<div class="gla-aggregated-data-comparison-item" *ngIf="data">
+  <div>
+    <div
+      class="gla-aggregated-data-comparison-item__pill-container"
+      *ngFor="let data of [data]"
+    >
+      <span class="gla-aggregated-data-comparison-item__pill">{{
+        data.versionFrom | formatPeriod
+      }}</span>
+    </div>
+  </div>
+  <div
+    class="gla-aggregated-data-comparison-item__fields-container"
+    *ngFor="let data of [data]"
+  >
+    <div>
+      <div
+        class="gla-aggregated-data-comparison-item__value gla-aggregated-data-comparison-item__value--margin-right"
+      >
+        {{ data.interestPaid | capNegativeToZero | shortNumber: "true" }}
+      </div>
+    </div>
+    <div class="gla-aggregated-data-comparison-item__label">Interest Paid</div>
+    <div
+      class="gla-aggregated-data-comparison-item__horizontal-separator"
+    ></div>
+    <div class="d-flex">
+      <div class="gla-aggregated-data-comparison-item__column">
+        <div
+          class="gla-aggregated-data-comparison-item__value gla-aggregated-data-comparison-item__value--small"
+        >
+          {{ data.periodInvestment | shortNumber: "true" }}
+        </div>
+        <div
+          class="gla-aggregated-data-comparison-item__label gla-aggregated-data-comparison-item__label--small"
+        >
+          Investment
+        </div>
+      </div>
+      <div class="gla-aggregated-data-comparison-item__column">
+        <div
+          class="gla-aggregated-data-comparison-item__value gla-aggregated-data-comparison-item__value--small"
+        >
+          {{ data.interestRate | capNegativeToZero | formatPercentage: 2 }}
+        </div>
+        <div
+          class="gla-aggregated-data-comparison-item__label gla-aggregated-data-comparison-item__label--small"
+        >
+          Interest Rate
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
